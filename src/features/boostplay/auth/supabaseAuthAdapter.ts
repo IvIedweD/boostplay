@@ -77,10 +77,14 @@ export class SupabaseAuthAdapter implements AuthAdapter {
     const identity = createRegistrationIdentity(request.email);
     if (!identity) throw new Error('Используйте корпоративную почту @yandex-team.ru.');
     const referralCode = normalizeReferralCode(request.referralCode);
+    const emailRedirectTo = new URL(import.meta.env.BASE_URL, window.location.origin).toString();
     const { error } = await this.client.auth.signUp({
       email: identity.email,
       password: request.password,
-      options: { data: referralCode ? { referral_code: referralCode } : undefined },
+      options: {
+        emailRedirectTo,
+        data: referralCode ? { referral_code: referralCode } : undefined,
+      },
     });
     if (error) throw new Error(friendlyAuthError(error.message));
     return { ...identity, referralCode, simulated: false };
