@@ -193,8 +193,7 @@
 .bp-activity-stack { display: grid; gap: 10px; }
 .bp-activity-stack button { display: grid; width: 100%; min-height: 72px; padding: 16px; grid-template-columns: 40px minmax(0,1fr) auto; align-items: center; gap: 16px; border: 1px solid var(--bp-border); border-radius: 16px; background: var(--bp-raised); cursor: pointer; text-align: left; transition: background 180ms ease, border-color 180ms ease; }
 .bp-activity-stack button:hover { border-color: var(--bp-border-strong); background: var(--bp-interactive); }
-.bp-activity-stack button > span:first-child { display: grid; width: 40px; height: 40px; place-items: center; border: 2px solid currentColor; border-radius: 50%; font-weight: 900; }
-.bp-activity-stack .is-hh { color: var(--bp-cyan); }.bp-activity-stack .is-gc { color: var(--bp-accent); }
+.bp-activity-stack .bp-community-avatar { width: 44px; height: 44px; margin: -2px; object-fit: contain; filter: drop-shadow(0 0 9px rgba(85,217,244,.16)); }
 .bp-activity-stack button > span:nth-child(2) { display: grid; min-width: 0; }
 .bp-activity-stack strong { font-size: 14px; font-weight: 700; }.bp-activity-stack small { overflow: hidden; color: var(--bp-muted); font-size: 10px; letter-spacing: -.02em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
 .bp-activity-stack button > b { color: var(--bp-cyan); font-family: Unbounded, sans-serif; font-size: 18px; }
@@ -283,7 +282,7 @@
 .bp-activity-sources { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
 .bp-activity-sources article { display: flex; min-width: 0; padding: 17px; flex-direction: column; border: 1px solid var(--bp-border); border-radius: 18px; background: rgba(27,39,54,.78); }
 .bp-activity-sources article header { display: flex; margin-bottom: 13px; align-items: center; justify-content: space-between; gap: 8px; }
-.bp-activity-sources article header b { display: grid; width: 46px; height: 46px; place-items: center; border: 2px solid currentColor; border-radius: 12px; font-size: 18px; }
+.bp-activity-sources article header img { width: 52px; height: 52px; margin: -3px; object-fit: contain; filter: drop-shadow(0 0 10px currentColor); }
 .bp-activity-sources article header span { font-size: 8px; font-weight: 900; letter-spacing: .09em; text-align: right; text-transform: uppercase; }
 .bp-activity-sources .is-hh header { color: var(--bp-cyan); }.bp-activity-sources .is-gc header { color: var(--bp-accent); }
 .bp-activity-sources h3 { margin: 0 0 5px; color: white; font-family: Unbounded, sans-serif; font-size: 17px; }

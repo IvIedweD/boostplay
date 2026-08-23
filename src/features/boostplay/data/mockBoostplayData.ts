@@ -1,4 +1,6 @@
 import { boostplayAssets } from '../../../assets/boostplay/assets';
+import gamerCommCommunityImage from '../../../assets/boostplay/communities/gamercomm.png';
+import hubbyHubCommunityImage from '../../../assets/boostplay/communities/hubbyhub.png';
 import type {
   BoostplayBooster,
   BoostplayCommunityActivity,
@@ -63,6 +65,9 @@ export const boostplayActivities: readonly BoostplayCommunityActivity[] = [
   {
     id: 'gamercomm-weekly-poll',
     source: 'GamerComm',
+    imageUrl: gamerCommCommunityImage,
+    cardSubtitle: 'Опрос о новинках',
+    categoryLabel: 'Стратегия сезона',
     title: 'Пройди недельный опрос',
     description: 'Поделись мнением о новых игровых активностях GamerComm.',
     rewardLabel: '×2 на следующую игру',
@@ -73,6 +78,9 @@ export const boostplayActivities: readonly BoostplayCommunityActivity[] = [
   {
     id: 'hubbyhub-pinned-task',
     source: 'HubbyHub',
+    imageUrl: hubbyHubCommunityImage,
+    cardSubtitle: 'Задание сообщества',
+    categoryLabel: 'Механики и тесты',
     title: 'Выполни задание из закреплённой публикации сообщества',
     description: 'Открой закреплённую публикацию и ознакомься с условиями кампании.',
     rewardLabel: '×3 на следующую игру',

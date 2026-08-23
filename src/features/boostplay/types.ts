@@ -39,6 +39,9 @@ export interface BoostplayBooster {
 export interface BoostplayCommunityActivity {
   id: string;
   source: 'GamerComm' | 'HubbyHub';
+  imageUrl: string;
+  cardSubtitle: string;
+  categoryLabel: string;
   title: string;
   description: string;
   rewardLabel: string;

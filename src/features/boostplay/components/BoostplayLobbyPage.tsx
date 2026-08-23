@@ -383,8 +383,8 @@ export default function BoostplayLobbyPage({
           <header><h2>Активности</h2><button type="button" className="bp-activities-info-button" aria-label="Информация об активностях" onClick={() => setDialog('activities')}><Icon name="info" /></button></header>
           <div className="bp-activity-stack">
             {[boostplayActivities[1], boostplayActivities[0]].map((activity) => <button key={activity.id} type="button" onClick={() => setDialog('activities')}>
-              <span className={activity.source === 'GamerComm' ? 'is-gc' : 'is-hh'}>{activity.source === 'GamerComm' ? 'GC' : 'H'}</span>
-              <span><strong>{activity.source}</strong><small>{activity.source === 'GamerComm' ? 'Опрос о новинках' : 'Задание сообщества'}</small></span>
+              <img className="bp-community-avatar" src={activity.imageUrl} alt="" />
+              <span><strong>{activity.source}</strong><small>{activity.cardSubtitle}</small></span>
               <b>×2</b>
             </button>)}
           </div>
@@ -450,8 +450,7 @@ export default function BoostplayLobbyPage({
     {dialog === 'activities' && <BoostplayDialog title="Активности" eyebrow="Информация" className="bp-info-dialog bp-activities-dialog" bodyClassName="bp-activities-dialog__body" onClose={() => setDialog(null)}>
       <p className="bp-dialog-lead">Опросы и задания сообщества позволяют игрокам влиять на развитие проекта и получать награды.</p>
       <div className="bp-activity-sources">
-        <article className="is-hh"><header><b>H</b><span>Механики и тесты</span></header><h3>HubbyHub</h3><p>Обсуждение механик и задания. Ваш фидбек влияет на баланс.</p><a href={boostplayActivities[1].externalUrl ?? '#'} target="_blank" rel="noreferrer">Открыть сообщество <Icon name="chevron" /></a></article>
-        <article className="is-gc"><header><b>GC</b><span>Стратегия сезона</span></header><h3>GamerComm</h3><p>Глобальные опросы и анонсы. Формируем будущее проекта вместе.</p><a href={boostplayActivities[0].externalUrl ?? '#'} target="_blank" rel="noreferrer">Открыть сообщество <Icon name="chevron" /></a></article>
+        {[boostplayActivities[1], boostplayActivities[0]].map((activity) => <article key={activity.id} className={activity.source === 'GamerComm' ? 'is-gc' : 'is-hh'}><header><img src={activity.imageUrl} alt="" /><span>{activity.categoryLabel}</span></header><h3>{activity.source}</h3><p>{activity.description}</p><a href={activity.externalUrl ?? '#'} target="_blank" rel="noreferrer">Открыть сообщество <Icon name="chevron" /></a></article>)}
       </div>
       <div className="bp-activity-route">
         <header><strong>×2</strong><span><b>Мультипликатор наград</b><small>Удвоенные очки рейтинга для подсвеченных активностей.</small></span></header>
