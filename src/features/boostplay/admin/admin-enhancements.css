@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('https://fonts.cdnfonts.com/s/107433/Unbounded[wght].woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://fonts.cdnfonts.com/s/107279/Onest[wght].woff') format('woff');
+}
+
+.admin-page,
+.admin-gate {
+  font-family: Onest, Inter, system-ui, sans-serif;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.admin-page {
+  height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+}
+
+.admin-page button,
+.admin-page input,
+.admin-page select,
+.admin-page textarea,
+.admin-gate button,
+.admin-gate input { font-family: Onest, Inter, system-ui, sans-serif; font-synthesis: none; }
+.admin-header h1,
+.admin-detail > header h2,
+.admin-adjustment h3,
+.admin-access-card h3,
+.admin-ledger h3,
+.admin-audit h2 { font-family: Unbounded, Onest, sans-serif; font-weight: 700; letter-spacing: -.035em; line-height: 1.2; }
+.admin-header button,
+.admin-header a,
+.admin-primary-action,
+.admin-access-card button { font-weight: 800; letter-spacing: 0; }
+
+.admin-header > div:first-child p { margin: 10px 0 0; color: #7f93a7; font-size: 13px; }
+.admin-stats { grid-template-columns: repeat(4, 1fr); }
+.admin-stats article { position: relative; overflow: hidden; }
+.admin-stats article::after { position: absolute; right: -18px; bottom: -28px; width: 92px; height: 92px; border: 1px solid rgba(85,217,244,.08); border-radius: 50%; content: ""; }
+.admin-stats em { display: block; margin-top: 8px; color: #647b8f; font-size: 9px; font-style: normal; }
+
+.admin-user-stats { grid-template-columns: repeat(5,minmax(130px,1fr)); gap: 10px; overflow-x: auto; scrollbar-width: thin; scrollbar-color: #38556c transparent; }
+.admin-user-stats article { --stat-accent: #60ddf7; position: relative; min-width: 0; min-height: 126px; padding: 18px 16px 15px; overflow: hidden; border-color: color-mix(in srgb,var(--stat-accent) 22%,transparent); background: radial-gradient(circle at 88% 8%,color-mix(in srgb,var(--stat-accent) 14%,transparent),transparent 38%),linear-gradient(145deg,rgba(23,38,56,.96),rgba(10,21,34,.94)); box-shadow: inset 0 1px rgba(255,255,255,.035),0 12px 30px rgba(0,0,0,.12); }
+.admin-user-stats article::before { position: absolute; top: 0; right: 18px; left: 18px; height: 1px; background: linear-gradient(90deg,transparent,var(--stat-accent),transparent); content: ''; opacity: .72; }
+.admin-user-stats article::after { position: absolute; right: -28px; bottom: -38px; width: 104px; height: 104px; border: 1px solid color-mix(in srgb,var(--stat-accent) 15%,transparent); border-radius: 50%; content: ''; box-shadow: 0 0 36px color-mix(in srgb,var(--stat-accent) 8%,transparent); }
+.admin-user-stats article > i { position: absolute; top: 14px; right: 14px; display: grid; width: 27px; height: 27px; place-items: center; border: 1px solid color-mix(in srgb,var(--stat-accent) 30%,transparent); border-radius: 9px; color: var(--stat-accent); background: color-mix(in srgb,var(--stat-accent) 8%,transparent); font-family: Onest,sans-serif; font-size: 11px; font-style: normal; font-weight: 800; }
+.admin-user-stats article > small { max-width: calc(100% - 34px); margin-bottom: 13px; color: color-mix(in srgb,var(--stat-accent) 63%,#a5b5c6); letter-spacing: .065em; }
+.admin-user-stats article > strong { display: block; overflow-wrap: anywhere; color: #f5f9fd; font-family: Unbounded,Onest,sans-serif; font-size: clamp(16px,1.3vw,21px); font-weight: 700; letter-spacing: -.045em; line-height: 1.23; font-variant-numeric: tabular-nums; }
+.admin-user-stats article > em { display: block; margin-top: 8px; color: #627b90; font-size: 8px; font-style: normal; font-weight: 650; }
+.admin-user-stats .is-score { --stat-accent: #ffbf47; }
+.admin-user-stats .is-games { --stat-accent: #8b7cff; }
+.admin-user-stats .is-last-game { --stat-accent: #63e1b2; }
+.admin-user-stats .is-registration { --stat-accent: #8fa7bd; }
+
+.admin-season-card { max-width: 1480px; margin: 0 auto 20px; padding: 22px; border: 1px solid rgba(124,108,255,.28); border-radius: 22px; background: radial-gradient(circle at 96% 0,rgba(124,108,255,.13),transparent 28%),linear-gradient(145deg,rgba(18,31,47,.96),rgba(9,19,31,.94)); box-shadow: 0 20px 60px rgba(0,0,0,.16),inset 0 1px rgba(255,255,255,.025); }
+.admin-season-card > header { display: flex; margin-bottom: 18px; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.admin-season-card > header small { color: #8f82ff; font-size: 9px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+.admin-season-card h2 { margin: 5px 0 6px; font-family: Unbounded,Onest,sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -.035em; }
+.admin-season-card > header p, .admin-season-card > footer p { margin: 0; color: #71879a; font-size: 10px; line-height: 1.45; }
+.admin-season-card > header > span { padding: 7px 10px; border: 1px solid; border-radius: 999px; font-size: 9px; font-weight: 850; text-transform: uppercase; }
+.admin-season-card > header > span.is-active { border-color: rgba(71,222,172,.38); color: #71e8bf; background: rgba(71,222,172,.07); }
+.admin-season-card > header > span.is-upcoming { border-color: rgba(255,191,71,.38); color: #ffca61; background: rgba(255,191,71,.07); }
+.admin-season-card > header > span.is-finished { border-color: rgba(143,167,189,.3); color: #9cafc1; background: rgba(143,167,189,.06); }
+.admin-season-fields { display: grid; grid-template-columns: 1fr 1.45fr 1fr 1fr .75fr .8fr; gap: 10px; }
+.admin-season-fields label { position: relative; display: grid; min-width: 0; gap: 7px; color: #91a5b8; font-size: 9px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+.admin-season-fields input, .admin-season-fields select { width: 100%; min-width: 0; height: 42px; padding: 0 11px; border: 1px solid rgba(117,148,177,.22); outline: 0; border-radius: 11px; color: #e8f1fa; background: #09131f; font: inherit; font-size: 10px; text-transform: none; }
+.admin-season-fields input:focus, .admin-season-fields select:focus { border-color: #8174ff; box-shadow: 0 0 0 3px rgba(124,108,255,.09); }
+.admin-season-fields label > small { position: absolute; right: 10px; bottom: 14px; color: #657a8e; font-size: 8px; text-transform: lowercase; pointer-events: none; }
+.admin-season-card > footer { display: flex; margin-top: 16px; align-items: center; justify-content: space-between; gap: 18px; }
+.admin-season-card > footer button { min-height: 42px; padding: 0 19px; border: 1px solid rgba(124,108,255,.55); border-radius: 12px; color: #fff; background: linear-gradient(110deg,#7163ee,#55bde9); font-weight: 800; cursor: pointer; box-shadow: 0 10px 26px rgba(98,87,219,.14); }
+
+.admin-user-filters { display: grid; padding: 10px 16px 14px; grid-template-columns: 1fr 1fr; gap: 8px; border-bottom: 1px solid rgba(117,148,177,.13); }
+.admin-user-filters select, .admin-access-card select { width: 100%; min-height: 38px; padding: 0 11px; border: 1px solid rgba(117,148,177,.22); outline: 0; border-radius: 10px; color: #dce9f5; background: #09131f; font: inherit; font-size: 11px; }
+.admin-user-filters select:focus, .admin-access-card select:focus { border-color: #60ddf7; box-shadow: 0 0 0 3px rgba(85,217,244,.08); }
+.admin-list-empty { padding: 34px 16px; color: #71879a; text-align: center; font-size: 11px; }
+
+.admin-management-grid { display: grid; grid-template-columns: minmax(0,1.45fr) minmax(240px,.75fr); gap: 12px; }
+.admin-adjustment > p, .admin-access-card > p { margin: -8px 0 12px; color: #71879a; font-size: 10px; line-height: 1.5; }
+.admin-quick-values { display: flex !important; margin: 0 0 10px !important; flex-wrap: wrap; gap: 7px !important; }
+.admin-quick-values button { min-height: 32px !important; padding: 0 12px !important; border-radius: 9px !important; color: #8cecff !important; background: rgba(85,217,244,.06) !important; }
+.admin-primary-action { width: 100%; margin-top: 13px; color: #07121e !important; background: #60ddf7 !important; }
+
+.admin-access-card { padding: 20px; border: 1px solid rgba(117,148,177,.15); border-radius: 17px; background: linear-gradient(145deg,rgba(18,31,47,.78),rgba(8,18,30,.62)); }
+.admin-access-card h3 { margin: 0 0 16px; font-family: Unbounded,sans-serif; font-size: 15px; }
+.admin-access-card label { display: grid; margin: 13px 0; gap: 7px; color: #91a5b8; font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.admin-access-card input { width: 100%; min-height: 40px; padding: 0 11px; border: 1px solid rgba(117,148,177,.22); outline: 0; border-radius: 10px; color: #dce9f5; background: #09131f; font: inherit; font-size: 11px; }
+.admin-access-card input:focus { border-color: #60ddf7; box-shadow: 0 0 0 3px rgba(85,217,244,.08); }
+.admin-access-card button { width: 100%; min-height: 44px; border: 1px solid; border-radius: 12px; background: transparent; font-weight: 800; cursor: pointer; }
+.admin-access-card button.admin-role-action { border-color: rgba(85,217,244,.45); color: #07121e; background: linear-gradient(105deg,#60ddf7,#73d0f8); box-shadow: 0 10px 28px rgba(85,217,244,.1); }
+.admin-access-card button.is-danger { border-color: rgba(255,103,127,.35); color: #ff9bad; background: rgba(255,103,127,.05); }
+.admin-access-card button.is-restore { border-color: rgba(71,222,172,.35); color: #71e8bf; background: rgba(71,222,172,.05); }
+.admin-access-card button:disabled, .admin-access-card select:disabled { opacity: .45; cursor: not-allowed; }
+.admin-access-card > small { display: block; margin-top: 12px; color: #64798d; font-size: 9px; line-height: 1.5; }
+.admin-role-control, .admin-status-control { padding: 15px; border: 1px solid rgba(117,148,177,.13); border-radius: 14px; background: rgba(5,14,24,.34); }
+.admin-role-control { margin-top: 15px; }
+.admin-status-control { margin-top: 10px; }
+.admin-role-control h4, .admin-status-control h4 { margin: 0 0 4px; color: #eef6ff; font-size: 12px; font-weight: 800; letter-spacing: 0; }
+
+.admin-audit { max-width: 1480px; margin: 20px auto 0; padding: 22px; border: 1px solid rgba(102,220,246,.17); border-radius: 22px; background: rgba(13,24,38,.9); box-shadow: 0 24px 70px rgba(0,0,0,.18); }
+.admin-audit > header { display: flex; margin-bottom: 14px; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.admin-audit > header small { color: #60ddf7; font-size: 9px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+.admin-audit h2 { margin: 5px 0 0; font-family: Unbounded,sans-serif; font-size: 18px; }
+.admin-audit > header > span { color: #71879a; font-size: 10px; }
+.admin-audit > div { display: grid; max-height: 330px; padding-right: 5px; gap: 7px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #38556c transparent; }
+.admin-audit article { display: grid; min-height: 58px; padding: 10px 12px; grid-template-columns: 36px minmax(0,1fr) auto; align-items: center; gap: 11px; border: 1px solid rgba(117,148,177,.11); border-radius: 13px; background: rgba(8,18,30,.46); }
+.admin-audit article > i { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; color: #08131e; background: linear-gradient(135deg,#60ddf7,#8b7cff); font-style: normal; font-weight: 900; }
+.admin-audit article > span { display: grid; min-width: 0; gap: 3px; }
+.admin-audit article strong { font-size: 11px; }
+.admin-audit article small { overflow: hidden; color: #6f8498; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.admin-audit time { color: #8194a8; font-size: 9px; }
+.admin-ledger { max-height: 360px; padding-right: 4px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #38556c transparent; }
+
+@media (max-width: 1100px) {
+  .admin-stats { grid-template-columns: 1fr 1fr; }
+  .admin-management-grid { grid-template-columns: 1fr; }
+  .admin-season-fields { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 700px) {
+  .admin-user-stats { grid-template-columns: 1fr; overflow-x: visible; }
+  .admin-season-card { padding: 17px; }
+  .admin-season-card > header, .admin-season-card > footer { align-items: stretch; flex-direction: column; }
+  .admin-season-fields { grid-template-columns: 1fr; }
+  .admin-season-card > footer button { width: 100%; }
+  .admin-user-filters { grid-template-columns: 1fr; }
+  .admin-audit > header { align-items: flex-start; flex-direction: column; }
+  .admin-audit article { grid-template-columns: 34px minmax(0,1fr); }
+  .admin-audit time { grid-column: 2; }
+  .admin-header > div:last-child { align-items: stretch; flex-direction: column; }
+  .admin-header > div:last-child > * { width: 100%; }
+}

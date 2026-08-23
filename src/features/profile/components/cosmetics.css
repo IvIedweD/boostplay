@@ -1,0 +1,39 @@
+.player-avatar {
+  --player-avatar-size: 96px;
+  --player-avatar-inset: 15%;
+  --player-avatar-scale: 1;
+  --player-avatar-offset-x: 0%;
+  --player-avatar-offset-y: 0%;
+  --player-frame-scale: 1;
+  position: relative;
+  display: inline-grid;
+  width: var(--player-avatar-size);
+  height: var(--player-avatar-size);
+  flex: none;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  vertical-align: middle;
+}
+
+.player-avatar__visual { position: absolute; inset: 0; display: block; }
+.player-avatar__avatar {
+  position: absolute;
+  z-index: 1;
+  inset: var(--player-avatar-inset);
+  overflow: hidden;
+  clip-path: polygon(13% 0, 87% 0, 100% 13%, 100% 87%, 87% 100%, 13% 100%, 0 87%, 0 13%);
+  background: radial-gradient(circle at 50% 32%, #202741, #070a14 72%);
+}
+.player-avatar__avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(var(--player-avatar-offset-x), var(--player-avatar-offset-y)) scale(var(--player-avatar-scale));
+}
+.player-avatar__avatar.is-fallback::before { content: "?"; position: absolute; inset: 0; display: grid; place-items: center; color: #b8a6d8; font-size: calc(var(--player-avatar-size) * .25); font-weight: 900; }
+.player-avatar__frame { position: absolute; z-index: 2; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; transform: scale(var(--player-frame-scale)); pointer-events: none; }
+.player-avatar__frame-fallback { position: absolute; z-index: 2; inset: 4%; border: 3px solid rgba(131, 183, 255, .72); border-radius: 18%; box-shadow: inset 0 0 14px rgba(103, 97, 255, .4), 0 0 12px rgba(103, 97, 255, .35); pointer-events: none; }
