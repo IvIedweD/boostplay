@@ -183,7 +183,8 @@ export async function submitRoversResult(result: CompletedRoversResult) {
     submitted_booster_activation_id: result.boosterActivationId ?? null,
   });
   if (error) throw new Error(`Результат не сохранён: ${error.message}`);
-  return { submitted: true, data } as const;
+  const standing = await loadRoversPlayerStanding(authData.user.id);
+  return { submitted: true, data, standing } as const;
 }
 
 export async function purchaseRoversBoosters(

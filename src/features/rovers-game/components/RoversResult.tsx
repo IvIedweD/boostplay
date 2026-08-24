@@ -2,7 +2,6 @@ import { getRoverLevel } from '../config/roverLevels';
 import type { RoverLevel } from '../types';
 import { formatRoversDuration } from '../logic/roversGameRules';
 import { RoverImage } from './RoverImage';
-import { useAuth } from '../../boostplay/auth/BoostplayAuthProvider';
 
 interface RoversResultProps {
   score: number;
@@ -10,6 +9,8 @@ interface RoversResultProps {
   bestScore: number;
   merges: number;
   durationMs: number;
+  rank: number | null;
+  rankLoading: boolean;
   onRestart: () => void;
   onExit: () => void;
 }
@@ -20,12 +21,11 @@ export function RoversResult({
   bestScore,
   merges,
   durationMs,
+  rank,
+  rankLoading,
   onRestart,
   onExit,
 }: RoversResultProps) {
-  const auth = useAuth();
-  const confirmedRank = auth.user?.rank ?? 0;
-
   return (
     <div className="rovers-modal-backdrop">
       <section
@@ -62,7 +62,10 @@ export function RoversResult({
 
           <dl className="rovers-game-over-stats">
             <div><dt>Рекорд</dt><dd>{bestScore.toLocaleString('ru-RU')}</dd></div>
-            <div><dt>Место</dt><dd>{confirmedRank > 0 ? `#${confirmedRank}` : '—'}</dd></div>
+            <div className={rankLoading ? 'is-loading' : undefined}>
+              <dt>Место</dt>
+              <dd>{rankLoading ? 'Считаем…' : rank ? `#${rank}` : '—'}</dd>
+            </div>
             <div><dt>Слияния</dt><dd>{merges.toLocaleString('ru-RU')}</dd></div>
             <div><dt>Время</dt><dd>{formatRoversDuration(durationMs)}</dd></div>
           </dl>

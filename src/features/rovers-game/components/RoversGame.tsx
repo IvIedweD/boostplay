@@ -131,6 +131,8 @@ export function RoversGame() {
           bestScore={resultPreview ? roversResultPreview.bestScore : game.bestScore}
           merges={resultPreview ? roversResultPreview.merges : game.merges}
           durationMs={resultPreview ? roversResultPreview.durationMs : game.lastDurationMs}
+          rank={resultPreview ? 8 : game.lastRank}
+          rankLoading={resultPreview ? false : game.resultStandingLoading}
           onRestart={resultPreview ? () => navigate('/play', { replace: true }) : game.restart}
           onExit={exitToCity}
         />

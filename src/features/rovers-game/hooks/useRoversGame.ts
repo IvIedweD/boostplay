@@ -106,6 +106,8 @@ export function useRoversGame({
   const [lastCommunityPoints, setLastCommunityPoints] = useState(0);
   const [lastXp, setLastXp] = useState(0);
   const [lastDurationMs, setLastDurationMs] = useState(0);
+  const [lastRank, setLastRank] = useState<number | null>(null);
+  const [resultStandingLoading, setResultStandingLoading] = useState(false);
   const [newlyCompletedTaskCount, setNewlyCompletedTaskCount] = useState(0);
 
   useEffect(() => {
@@ -183,9 +185,18 @@ export function useRoversGame({
             boosterActivationId: boosterLoadoutRef.current.activationId,
           };
           const reward = applyCompletedGameResult(completedResult);
-          void submitRoversResult(completedResult).catch((error: unknown) => {
-            if (import.meta.env.DEV) console.warn(error);
-          });
+          setLastRank(null);
+          setResultStandingLoading(true);
+          void submitRoversResult(completedResult)
+            .then((submission) => {
+              if (submission.submitted) {
+                setLastRank(submission.standing?.rank ?? null);
+              }
+            })
+            .catch((error: unknown) => {
+              if (import.meta.env.DEV) console.warn(error);
+            })
+            .finally(() => setResultStandingLoading(false));
           if (import.meta.env.DEV) {
             recordRoversDevSession({
               completedAt: new Date().toISOString(),
@@ -298,6 +309,8 @@ export function useRoversGame({
     setLastCommunityPoints(0);
     setLastXp(0);
     setLastDurationMs(0);
+    setLastRank(null);
+    setResultStandingLoading(false);
     setNewlyCompletedTaskCount(0);
     sessionStartedAtRef.current = Date.now();
     sessionIdRef.current = createPlayerSessionId();
@@ -375,6 +388,8 @@ export function useRoversGame({
     lastCommunityPoints,
     lastXp,
     lastDurationMs,
+    lastRank,
+    resultStandingLoading,
     newlyCompletedTaskCount,
     difficulty,
     boosterLoadout,
